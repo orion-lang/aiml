@@ -1,4 +1,6 @@
+
 .quarto/
 _site/
 *_files/
+site_libs/
 *.html
