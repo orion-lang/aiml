@@ -1,0 +1,6 @@
+---
+title: "AI-ML Journal"
+---
+
+Welcome to my AI-ML Journal.\
+Browse topics like Classifier, SVD, Markov, and more as I add them.

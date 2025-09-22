@@ -1,0 +1,18 @@
+project:
+  type: website
+
+website:
+  title: "AI-ML Journal"
+  site-url: "https://orion-lang.github.io/aiml"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Classifier"
+        href: pathtosvd.qmd   # only one topic for now
+
+format:
+  html:
+    toc: true
+    number-sections: true
+    html-math-method: katex
