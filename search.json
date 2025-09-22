@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "hello.html",
+    "href": "hello.html",
+    "title": "Quarto Basics",
+    "section": "",
+    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AI-ML Journal",
+    "section": "",
+    "text": "Welcome to my AI-ML Journal.\nBrowse topics like Classifier, SVD, Markov, and more as I add them."
+  },
+  {
+    "objectID": "classifier.html",
+    "href": "classifier.html",
+    "title": "AI-ML Journal",
+    "section": "",
+    "text": "0.1 Path to SVM\nHow to classify various data points into two types ( spam/non spam, baby_pic/non_babypic, etc):\n\n\n\nFig 1: Sample Data set with Two types of data\n\n\nDataset with 5 features\n\nSample Data Set\n\n\n\n\n\n\n\n\n\n\nLabel\nFeature\nFeature\nFeature\nFeature\nFeature\n\n\n\n\n\n\\color{green}1\n\\color{green}2\n\\color{green}3\n\\color{green}4\n\\color{green}5\n\n\ny_{\\color{orange}{1}}\nx_{\\color{green}1}^{\\color{orange}{(1)}}\nx_{\\color{green}2}^{\\color{orange}{(1)}}\nx_{\\color{green}3}^{\\color{orange}{(1)}}\nx_{\\color{green}4}^{\\color{orange}{(1)}}\nx_{\\color{green}5}^{\\color{orange}{(1)}}\n\n\ny_{\\color{orange}{2}}\nx_{\\color{green}1}^{\\color{orange}{(2)}}\nx_{\\color{green}2}^{\\color{orange}{(2)}}\nx_{\\color{green}3}^{\\color{orange}{(3)}}\nx_{\\color{green}4}^{\\color{orange}{(4)}}\nx_{\\color{green}5}^{\\color{orange}{(5)}}\n\n\ny_{\\color{orange}{3}}\nx_{\\color{green}1}^{\\color{orange}{(3)}}\nx_{\\color{green}2}^{\\color{orange}{(3)}}\nx_{\\color{green}3}^{\\color{orange}{(3)}}\nx_{\\color{green}4}^{\\color{orange}{(3)}}\nx_{\\color{green}5}^{\\color{orange}{(3)}}\n\n\ny_{\\color{orange}{4}}\nx_{\\color{green}1}^{\\color{orange}{(4)}}\nx_{\\color{green}2}^{\\color{orange}{(4)}}\nx_{\\color{green}3}^{\\color{orange}{(4)}}\nx_{\\color{green}4}^{\\color{orange}{(4)}}\nx_{\\color{green}5}^{\\color{orange}{(4)}}"
+  }
+]
