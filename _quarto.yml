@@ -9,7 +9,7 @@ website:
       - text: "Home"
         href: index.qmd
       - text: "Classifier"
-        href: pathtosvd.qmd   # only one topic for now
+        href: classifier.qmd   # only one topic for now
 
 format:
   html:
