@@ -159,6 +159,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#path-to-svm" id="toc-path-to-svm" class="nav-link active" data-scroll-target="#path-to-svm"><span class="header-section-number">0.1</span> Path to SVM</a></li>
+  <li><a href="#number-of-updates-to-theta" id="toc-number-of-updates-to-theta" class="nav-link" data-scroll-target="#number-of-updates-to-theta"><span class="header-section-number">0.2</span> Number of Updates to Theta</a></li>
   </ul>
 </nav>
     </div>
@@ -170,29 +171,73 @@ window.Quarto = {
 
 <section id="path-to-svm" class="level3" data-number="0.1">
 <h3 data-number="0.1" class="anchored" data-anchor-id="path-to-svm"><span class="header-section-number">0.1</span> Path to SVM</h3>
-<p>How to classify various data points into two types ( spam/non spam, baby_pic/non_babypic, etc):</p>
+<p>How to classify various data points into two types ( for example : spam/non spam emails):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/paste-1.png" class="img-fluid figure-img" width="500"></p>
-<figcaption><strong>Fig 1: Sample Data set with Two types of data</strong></figcaption>
+<p><img src="classifierimages/paste-1.png" class="img-fluid figure-img" width="200"></p>
+<figcaption>Fig1: Binary Classifier</figcaption>
 </figure>
 </div>
-<p>Dataset with 5 features</p>
+<p>How to identify equation of a classifier (straight line in 2D plane) which can split this data sets in two groups?</p>
+<p><strong>Vector Algebra:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="classifierimages/paste-2.png" class="img-fluid figure-img" width="225"></p>
+<figcaption>Fig2. Line classifier useful in 2D.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="classifierimages/paste-3.png" class="img-fluid figure-img" width="200"></p>
+<figcaption>Fig 3: Concept of distance</figcaption>
+</figure>
+</div>
+<p>The classification is done by identifying a line in case of 2d which is evenly placed between two groups of data.And, to be specific its determined by calculating the distance from the green line ( in fig 3)</p>
+<p>For example, we will calculate the distance D1, D2, D3 from the classifier line. The magnitude of this distance is used to determine how confident the classifier is about the point. If the distance is positive then the classifier marks them with 1 ( Points <span class="math inline">\color{magenta}1</span> and <span class="math inline">\color{magenta}{2}</span>) and if the distance is negative then classifier marks them -1 ( point <span class="math inline">\color{blue}3</span>)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="classifierimages/paste-4.png" class="img-fluid figure-img" width="365"></p>
+<figcaption>Vector Diagram</figcaption>
+</figure>
+</div>
+<p>Let’s assume the plane P is the hyperplane which will be used to classify two groups of data. <strong>x is any vector</strong></p>
+<p>Distance between point x and the hyperplane is given by <span class="math inline">\alpha\theta</span>. Why?</p>
+<p>Theta is the Perpendicular to the plane. So the vector to point x is given by <span class="math inline">\alpha\theta</span></p>
+<p>We need to find this <span class="math inline">\alpha\theta</span>.</p>
+<p>By vector geometry :</p>
+<p><span class="math inline">w+z=x</span> ——————– <strong>1</strong></p>
+<p>Equation of the plane is given by <span class="math inline">\theta.x=0</span> where x is give by:</p>
+<p><span class="math inline">\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3 \\
+....\\
+x_n
+\end{bmatrix}</span></p>
+<p>From 1 :</p>
+<div class="line-block"><span class="math inline">z = x-w</span><br>
+or:<br>
+<br>
+<span class="math inline">\theta^T.z = \theta^T.x-\theta^T.w</span> [Dot product with <span class="math inline">\theta</span> on both sides: ]<br>
+<br>
+or, <span class="math inline">z= \frac{-w.\theta}{||\theta||}</span><br>
+<br>
+<em>(the -ve sign indicates which direction is the distance)</em></div>
+<p>Algorithm:</p>
+<p>Binary classification : Data represented by two labels.</p>
+<p>Dataset with 4 features</p>
 <table class="caption-top table">
-<caption>Sample Data Set</caption>
 <colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Label</th>
-<th>Feature</th>
-<th>Feature</th>
+<th>Label Value</th>
 <th>Feature</th>
 <th>Feature</th>
 <th>Feature</th>
@@ -201,43 +246,110 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td></td>
+<td></td>
 <td><span class="math inline">\color{green}1</span></td>
 <td><span class="math inline">\color{green}2</span></td>
 <td><span class="math inline">\color{green}3</span></td>
-<td><span class="math inline">\color{green}4</span></td>
-<td><span class="math inline">\color{green}5</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">y_{\color{orange}{1}}</span></td>
+<td><span class="math inline">\color{deeppink}1</span></td>
 <td><span class="math inline">x_{\color{green}1}^{\color{orange}{(1)}}</span></td>
 <td><span class="math inline">x_{\color{green}2}^{\color{orange}{(1)}}</span></td>
 <td><span class="math inline">x_{\color{green}3}^{\color{orange}{(1)}}</span></td>
-<td><span class="math inline">x_{\color{green}4}^{\color{orange}{(1)}}</span></td>
-<td><span class="math inline">x_{\color{green}5}^{\color{orange}{(1)}}</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">y_{\color{orange}{2}}</span></td>
+<td><span class="math inline">\color{deeppink}1</span></td>
 <td><span class="math inline">x_{\color{green}1}^{\color{orange}{(2)}}</span></td>
 <td><span class="math inline">x_{\color{green}2}^{\color{orange}{(2)}}</span></td>
 <td><span class="math inline">x_{\color{green}3}^{\color{orange}{(3)}}</span></td>
-<td><span class="math inline">x_{\color{green}4}^{\color{orange}{(4)}}</span></td>
-<td><span class="math inline">x_{\color{green}5}^{\color{orange}{(5)}}</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">y_{\color{orange}{3}}</span></td>
+<td><span class="math inline">\color{deeppink}1</span></td>
 <td><span class="math inline">x_{\color{green}1}^{\color{orange}{(3)}}</span></td>
 <td><span class="math inline">x_{\color{green}2}^{\color{orange}{(3)}}</span></td>
 <td><span class="math inline">x_{\color{green}3}^{\color{orange}{(3)}}</span></td>
-<td><span class="math inline">x_{\color{green}4}^{\color{orange}{(3)}}</span></td>
-<td><span class="math inline">x_{\color{green}5}^{\color{orange}{(3)}}</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">y_{\color{orange}{4}}</span></td>
+<td><span class="math inline">\color{blue}{-1}</span></td>
 <td><span class="math inline">x_{\color{green}1}^{\color{orange}{(4)}}</span></td>
 <td><span class="math inline">x_{\color{green}2}^{\color{orange}{(4)}}</span></td>
 <td><span class="math inline">x_{\color{green}3}^{\color{orange}{(4)}}</span></td>
-<td><span class="math inline">x_{\color{green}4}^{\color{orange}{(4)}}</span></td>
-<td><span class="math inline">x_{\color{green}5}^{\color{orange}{(4)}}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">y_{\color{orange}{5}}</span></td>
+<td><span class="math inline">\color{blue}{-1}</span></td>
+<td><span class="math inline">x_{\color{green}1}^{\color{orange}{(5)}}</span></td>
+<td><span class="math inline">x_{\color{green}2}^{\color{orange}{(5)}}</span></td>
+<td><span class="math inline">x_{\color{green}3}^{\color{orange}{(5)}}</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="number-of-updates-to-theta" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="number-of-updates-to-theta"><span class="header-section-number">0.2</span> Number of Updates to Theta</h3>
+<p>M times the update has been made. We know that the update formula is :</p>
+<p><span class="math inline">\theta_i = \theta_{i-1} + y_i.x_i</span> <span class="math inline">x_i</span> = feature vector at ith round</p>
+<p>Let <span class="math inline">t_i</span> be the times when the weights are updated. <span class="math inline">t_i \in [ 1,.....M]\in [1....T]</span></p>
+<p>to simplify two weights updates will be indicated by <span class="math inline">w_{k+1}</span> , and previous one will be indicated by <span class="math inline">w_k</span></p>
+<p><strong>Total Update</strong> is Sum of Update at every step:</p>
+<table class="caption-top table">
+<caption>Proof</caption>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 40%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Declaration</th>
+<th>Logic</th>
+<th>Col3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sum of Changes=</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">||\sum_{t=1}^M y_t.x_t ||</span>=</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">|| \sum_1^M  w_{k+1}-w_{k} ||=</span></td>
+<td>Theta ( or weight changes at each step)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>= ||<span class="math inline">\color{red} w_{M+1} - w_{M}</span> +</p>
+<p><span class="math inline">\color{green} w_{M} - w_{M-1}</span> +</p>
+<p><span class="math inline">\color{magenta} w_{M-1} - w_{M-2}</span> +</p>
+<p>………….</p>
+<p><span class="math inline">\color{blue} w_{3} - w_{2}</span> +</p>
+<p><span class="math inline">\color{Aquamarine} w_{2} - w_{1}</span> ||</p></td>
+<td>Adding individual content</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>= ||<span class="math inline">w_{M+1} - w_1</span>||</td>
+<td>By telescoping</td>
+<td><span class="math inline">w_m</span> is a vector</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>w_M=</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
