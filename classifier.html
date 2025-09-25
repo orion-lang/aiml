@@ -159,6 +159,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#linear-classifier" id="toc-linear-classifier" class="nav-link active" data-scroll-target="#linear-classifier"><span class="header-section-number">0.1</span> Linear Classifier</a></li>
+  <li><a href="#algorithm-perceptron" id="toc-algorithm-perceptron" class="nav-link" data-scroll-target="#algorithm-perceptron"><span class="header-section-number">0.2</span> Algorithm: Perceptron</a></li>
+  <li><a href="#perceptron-performance" id="toc-perceptron-performance" class="nav-link" data-scroll-target="#perceptron-performance"><span class="header-section-number">0.3</span> Perceptron Performance</a></li>
   </ul>
 </nav>
     </div>
@@ -179,7 +181,7 @@ window.Quarto = {
 </div>
 <p>How to identify equation of a classifier (straight line in 2D plane) which can split this data sets in two groups?</p>
 <p><strong>Vector Algebra: To help us find distances</strong></p>
-<div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="classifierimages/paste-2.png" class="img-fluid figure-img" width="225"></p>
 <figcaption><strong>Fig2. Line classifier useful in 2D.</strong></figcaption>
@@ -188,7 +190,7 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="classifierimages/paste-3.png" class="img-fluid figure-img" width="200"></p>
-<figcaption><strong>Fig 3: Concept of distance</strong></figcaption>
+<figcaption><strong>Fig 3: Concept of distance from Classifier</strong></figcaption>
 </figure>
 </div>
 <p>The classification is done by identifying a line in case of 2d which is evenly placed between two groups of data.And, to be specific its determined by calculating the distance from the $ \color{green} $ line which is the classifier( in fig 3)</p>
@@ -196,7 +198,7 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="classifierimages/paste-4.png" class="img-fluid figure-img" width="365"></p>
-<figcaption>Fig4 Orthogonal Projection</figcaption>
+<figcaption><strong>Fig4 Orthogonal Projection</strong></figcaption>
 </figure>
 </div>
 <p>Let’s assume the plane P is the hyperplane which will be used to classify two groups of data. <strong>x is any vector</strong></p>
@@ -222,8 +224,9 @@ or:<br>
 or, <span class="math inline">z= \frac{-w.\theta}{||\theta||}</span><br>
 <br>
 <em>(the -ve sign indicates which direction is the distance)</em></div>
-<section id="algorithm" class="level4" data-number="0.1.1">
-<h4 data-number="0.1.1" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">0.1.1</span> Algorithm:</h4>
+</section>
+<section id="algorithm-perceptron" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="algorithm-perceptron"><span class="header-section-number">0.2</span> Algorithm: Perceptron</h3>
 <p>Binary classification : Data represented by two labels.</p>
 <p>Dataset with 4 features</p>
 <table class="caption-top table">
@@ -289,8 +292,8 @@ or, <span class="math inline">z= \frac{-w.\theta}{||\theta||}</span><br>
 </tbody>
 </table>
 </section>
-<section id="number-of-updates-to-theta" class="level4" data-number="0.1.2">
-<h4 data-number="0.1.2" class="anchored" data-anchor-id="number-of-updates-to-theta"><span class="header-section-number">0.1.2</span> Number of Updates to Theta</h4>
+<section id="perceptron-performance" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="perceptron-performance"><span class="header-section-number">0.3</span> Perceptron Performance</h3>
 <p>M times the update has been made. We know that the update formula is :</p>
 <p><span class="math inline">\theta_i = \theta_{i-1} + y_i.x_i</span> <span class="math inline">x_i</span> = feature vector at ith round</p>
 <p>Let <span class="math inline">t_i</span> be the times when the weights are updated. <span class="math inline">t_i \in [ 1,.....M]\in [1....T]</span></p>
@@ -355,7 +358,6 @@ or, <span class="math inline">z= \frac{-w.\theta}{||\theta||}</span><br>
 </table>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
