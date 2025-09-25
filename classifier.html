@@ -158,8 +158,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#path-to-svm" id="toc-path-to-svm" class="nav-link active" data-scroll-target="#path-to-svm"><span class="header-section-number">0.1</span> Path to SVM</a></li>
-  <li><a href="#number-of-updates-to-theta" id="toc-number-of-updates-to-theta" class="nav-link" data-scroll-target="#number-of-updates-to-theta"><span class="header-section-number">0.2</span> Number of Updates to Theta</a></li>
+  <li><a href="#linear-classifier" id="toc-linear-classifier" class="nav-link active" data-scroll-target="#linear-classifier"><span class="header-section-number">0.1</span> Linear Classifier</a></li>
   </ul>
 </nav>
     </div>
@@ -169,8 +168,8 @@ window.Quarto = {
 
 
 
-<section id="path-to-svm" class="level3" data-number="0.1">
-<h3 data-number="0.1" class="anchored" data-anchor-id="path-to-svm"><span class="header-section-number">0.1</span> Path to SVM</h3>
+<section id="linear-classifier" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="linear-classifier"><span class="header-section-number">0.1</span> Linear Classifier</h3>
 <p>How to classify various data points into two types ( for example : spam/non spam emails):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -223,7 +222,8 @@ or:<br>
 or, <span class="math inline">z= \frac{-w.\theta}{||\theta||}</span><br>
 <br>
 <em>(the -ve sign indicates which direction is the distance)</em></div>
-<p>Algorithm:</p>
+<section id="algorithm" class="level4" data-number="0.1.1">
+<h4 data-number="0.1.1" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">0.1.1</span> Algorithm:</h4>
 <p>Binary classification : Data represented by two labels.</p>
 <p>Dataset with 4 features</p>
 <table class="caption-top table">
@@ -236,61 +236,61 @@ or, <span class="math inline">z= \frac{-w.\theta}{||\theta||}</span><br>
 </colgroup>
 <thead>
 <tr class="header">
-<th>Label</th>
-<th>Label Value</th>
-<th>Feature</th>
-<th>Feature</th>
-<th>Feature</th>
+<th style="text-align: center;">Label</th>
+<th style="text-align: center;">Label Value</th>
+<th style="text-align: center;">Feature</th>
+<th style="text-align: center;">Feature</th>
+<th style="text-align: center;">Feature</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td></td>
-<td><span class="math inline">\color{green}1</span></td>
-<td><span class="math inline">\color{green}2</span></td>
-<td><span class="math inline">\color{green}3</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\color{green}1</span></td>
+<td style="text-align: center;"><span class="math inline">\color{green}2</span></td>
+<td style="text-align: center;"><span class="math inline">\color{green}3</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">y_{\color{orange}{1}}</span></td>
-<td><span class="math inline">\color{deeppink}1</span></td>
-<td><span class="math inline">x_{\color{green}1}^{\color{orange}{(1)}}</span></td>
-<td><span class="math inline">x_{\color{green}2}^{\color{orange}{(1)}}</span></td>
-<td><span class="math inline">x_{\color{green}3}^{\color{orange}{(1)}}</span></td>
+<td style="text-align: center;"><span class="math inline">y_{\color{orange}{1}}</span></td>
+<td style="text-align: center;"><span class="math inline">\color{deeppink}1</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}1}^{\color{orange}{(1)}}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}2}^{\color{orange}{(1)}}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}3}^{\color{orange}{(1)}}</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">y_{\color{orange}{2}}</span></td>
-<td><span class="math inline">\color{deeppink}1</span></td>
-<td><span class="math inline">x_{\color{green}1}^{\color{orange}{(2)}}</span></td>
-<td><span class="math inline">x_{\color{green}2}^{\color{orange}{(2)}}</span></td>
-<td><span class="math inline">x_{\color{green}3}^{\color{orange}{(3)}}</span></td>
+<td style="text-align: center;"><span class="math inline">y_{\color{orange}{2}}</span></td>
+<td style="text-align: center;"><span class="math inline">\color{deeppink}1</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}1}^{\color{orange}{(2)}}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}2}^{\color{orange}{(2)}}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}3}^{\color{orange}{(3)}}</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">y_{\color{orange}{3}}</span></td>
-<td><span class="math inline">\color{deeppink}1</span></td>
-<td><span class="math inline">x_{\color{green}1}^{\color{orange}{(3)}}</span></td>
-<td><span class="math inline">x_{\color{green}2}^{\color{orange}{(3)}}</span></td>
-<td><span class="math inline">x_{\color{green}3}^{\color{orange}{(3)}}</span></td>
+<td style="text-align: center;"><span class="math inline">y_{\color{orange}{3}}</span></td>
+<td style="text-align: center;"><span class="math inline">\color{deeppink}1</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}1}^{\color{orange}{(3)}}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}2}^{\color{orange}{(3)}}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}3}^{\color{orange}{(3)}}</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">y_{\color{orange}{4}}</span></td>
-<td><span class="math inline">\color{blue}{-1}</span></td>
-<td><span class="math inline">x_{\color{green}1}^{\color{orange}{(4)}}</span></td>
-<td><span class="math inline">x_{\color{green}2}^{\color{orange}{(4)}}</span></td>
-<td><span class="math inline">x_{\color{green}3}^{\color{orange}{(4)}}</span></td>
+<td style="text-align: center;"><span class="math inline">y_{\color{orange}{4}}</span></td>
+<td style="text-align: center;"><span class="math inline">\color{blue}{-1}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}1}^{\color{orange}{(4)}}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}2}^{\color{orange}{(4)}}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}3}^{\color{orange}{(4)}}</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">y_{\color{orange}{5}}</span></td>
-<td><span class="math inline">\color{blue}{-1}</span></td>
-<td><span class="math inline">x_{\color{green}1}^{\color{orange}{(5)}}</span></td>
-<td><span class="math inline">x_{\color{green}2}^{\color{orange}{(5)}}</span></td>
-<td><span class="math inline">x_{\color{green}3}^{\color{orange}{(5)}}</span></td>
+<td style="text-align: center;"><span class="math inline">y_{\color{orange}{5}}</span></td>
+<td style="text-align: center;"><span class="math inline">\color{blue}{-1}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}1}^{\color{orange}{(5)}}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}2}^{\color{orange}{(5)}}</span></td>
+<td style="text-align: center;"><span class="math inline">x_{\color{green}3}^{\color{orange}{(5)}}</span></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="number-of-updates-to-theta" class="level3" data-number="0.2">
-<h3 data-number="0.2" class="anchored" data-anchor-id="number-of-updates-to-theta"><span class="header-section-number">0.2</span> Number of Updates to Theta</h3>
+<section id="number-of-updates-to-theta" class="level4" data-number="0.1.2">
+<h4 data-number="0.1.2" class="anchored" data-anchor-id="number-of-updates-to-theta"><span class="header-section-number">0.1.2</span> Number of Updates to Theta</h4>
 <p>M times the update has been made. We know that the update formula is :</p>
 <p><span class="math inline">\theta_i = \theta_{i-1} + y_i.x_i</span> <span class="math inline">x_i</span> = feature vector at ith round</p>
 <p>Let <span class="math inline">t_i</span> be the times when the weights are updated. <span class="math inline">t_i \in [ 1,.....M]\in [1....T]</span></p>
@@ -355,6 +355,7 @@ or, <span class="math inline">z= \frac{-w.\theta}{||\theta||}</span><br>
 </table>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
