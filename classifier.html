@@ -364,8 +364,7 @@ y=\begin{bmatrix}
 Code Snippet
 </div>
 <div class="card-body">
-<pre><code>&lt;p class="card-text"&gt;
-``` python
+<pre><code>``` python
     def perceptron(feature_matrix, labels, T):
     theta = np.zeros(feature_matrix.shape[1])
     theta_0 = 0
@@ -377,8 +376,7 @@ Code Snippet
             theta, theta_0 = perceptron_single_step_update(
                 feature_matrix[i], labels[i], theta, theta_0)
             # print("current theta",theta)
-    return (theta, theta_0)
-&lt;/p&gt;</code></pre>
+    return (theta, theta_0)</code></pre>
 </div>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> perceptron_single_step_update( feature_vector, label, current_theta, current_theta_0): </span>
