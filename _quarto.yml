@@ -8,11 +8,12 @@ website:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Classifier"
+      - text: "Linear Classifier"
         href: classifier.qmd   # only one topic for now
 
 format:
   html:
+    theme: cerulean
     toc: true
     number-sections: true
     html-math-method: katex
