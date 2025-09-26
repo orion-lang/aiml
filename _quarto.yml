@@ -20,5 +20,7 @@ format:
     number-sections: true
     html-math-method: katex
     page-layout: full
-    highlight-style: tango
+    highlight-style: dracula
     code-line-numbers: true
+    code-overflow: wrap
+    code-block-bg: "#CBDCE7"
