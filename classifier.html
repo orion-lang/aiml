@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -206,7 +241,7 @@ window.Quarto = {
 <p>Theta is the Perpendicular to the plane. So the vector to point x is given by <span class="math inline">\alpha\theta</span></p>
 <p>We need to find this <span class="math inline">\alpha\theta</span>.</p>
 <p>By vector geometry :</p>
-<p><span class="math inline">w+z=x</span> ——————– <strong>1</strong></p>
+<p><span class="math inline">w+z=x</span> <strong>1</strong></p>
 <p>Equation of the plane is given by <span class="math inline">\theta.x=0</span> where x is give by:</p>
 <p><span class="math inline">\begin{bmatrix}
 x_1 \\
@@ -240,7 +275,19 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 
 \end{bmatrix}</span>
 <p>$</p>
+<p><span class="math inline">x_{ij}</span> = ith data , jth feature</p>
+<p>The label matrix is given by:</p>
+<p><span class="math inline">y=\begin{bmatrix}
+1 \\
+1 \\
+-1 \\
+-1 \\
+-1
+\end{bmatrix}</span></p>
+<p>Table View if</p>
+<div>
 <table class="caption-top table">
+<caption>Table View of the data</caption>
 <colgroup>
 <col style="width: 13%">
 <col style="width: 11%">
@@ -302,6 +349,36 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 </tr>
 </tbody>
 </table>
+</div>
+<ol type="1">
+<li><p>Initialise theta and theta_0:</p></li>
+<li><p>For i in range (featire_matrix,shape[0]): iteratively check if the distance is positive distance</p></li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> perceptron_single_step_update( feature_vector, label, current_theta, current_theta_0): </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> feature_vector.shape[<span class="dv">0</span>]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>decision <span class="op">=</span> label<span class="op">*</span>(np.dot(current_theta, feature_vector)<span class="op">+</span>current_theta_0)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> decision <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    current_theta <span class="op">=</span> current_theta <span class="op">+</span> label<span class="op">*</span>feature_vector</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    current_theta_0 <span class="op">=</span> current_theta_0 <span class="op">+</span> label</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (current_theta, current_theta_0)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (current_theta, current_theta_0)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> perceptron(feature_matrix, labels, T):</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    theta <span class="op">=</span> np.zeros(feature_matrix.shape[<span class="dv">1</span>])</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    theta_0 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    nsamples <span class="op">=</span> feature_matrix.shape[<span class="dv">0</span>]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(T):</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> get_order(nsamples):</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Your code here</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            theta, theta_0 <span class="op">=</span> perceptron_single_step_update(</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                feature_matrix[i], labels[i], theta, theta_0)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            <span class="co"># print("current theta",theta)</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (theta, theta_0)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="perceptron-performance" class="level3" data-number="0.3">
 <h3 data-number="0.3" class="anchored" data-anchor-id="perceptron-performance"><span class="header-section-number">0.3</span> Perceptron Performance</h3>
