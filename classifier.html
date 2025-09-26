@@ -185,7 +185,7 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -200,7 +200,7 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -275,19 +275,16 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 
 \end{bmatrix}</span>
 <p>$</p>
-<p><span class="math inline">x_{ij}</span> = ith data , jth feature</p>
+<p>ith Data, j featire <span class="math inline">x_{ij}</span></p>
 <p>The label matrix is given by:</p>
 <p><span class="math inline">y=\begin{bmatrix}
 1 \\
 1 \\
 -1 \\
 -1 \\
--1
+-1 \\
 \end{bmatrix}</span></p>
-<p>Table View if</p>
-<div>
 <table class="caption-top table">
-<caption>Table View of the data</caption>
 <colgroup>
 <col style="width: 13%">
 <col style="width: 11%">
@@ -349,7 +346,8 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 </tr>
 </tbody>
 </table>
-</div>
+<section id="pseudocode" class="level4" data-number="0.2.1">
+<h4 data-number="0.2.1" class="anchored" data-anchor-id="pseudocode"><span class="header-section-number">0.2.1</span> Pseudocode</h4>
 <ol type="1">
 <li><p>Initialise theta and theta_0:</p></li>
 <li><p>For i in range (featire_matrix,shape[0]): iteratively check if the distance is positive distance</p></li>
@@ -379,6 +377,7 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            <span class="co"># print("current theta",theta)</span></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (theta, theta_0)</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
 </section>
 <section id="perceptron-performance" class="level3" data-number="0.3">
 <h3 data-number="0.3" class="anchored" data-anchor-id="perceptron-performance"><span class="header-section-number">0.3</span> Perceptron Performance</h3>
