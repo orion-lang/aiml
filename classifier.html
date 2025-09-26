@@ -195,7 +195,9 @@ window.Quarto = {
   <ul>
   <li><a href="#linear-classifier" id="toc-linear-classifier" class="nav-link active" data-scroll-target="#linear-classifier"><span class="header-section-number">0.1</span> Linear Classifier</a></li>
   <li><a href="#algorithm-perceptron" id="toc-algorithm-perceptron" class="nav-link" data-scroll-target="#algorithm-perceptron"><span class="header-section-number">0.2</span> Algorithm: Perceptron</a></li>
-  <li><a href="#perceptron-performance" id="toc-perceptron-performance" class="nav-link" data-scroll-target="#perceptron-performance"><span class="header-section-number">0.3</span> Perceptron Performance</a></li>
+  <li><a href="#large-margin-classifier" id="toc-large-margin-classifier" class="nav-link" data-scroll-target="#large-margin-classifier"><span class="header-section-number">0.3</span> Large Margin Classifier</a></li>
+  <li><a href="#optimising-perceptron" id="toc-optimising-perceptron" class="nav-link" data-scroll-target="#optimising-perceptron"><span class="header-section-number">0.4</span> Optimising Perceptron :</a></li>
+  <li><a href="#perceptron-performance" id="toc-perceptron-performance" class="nav-link" data-scroll-target="#perceptron-performance"><span class="header-section-number">0.5</span> Perceptron Performance</a></li>
   </ul>
 </nav>
     </div>
@@ -247,11 +249,24 @@ x_3 \\
 ....\\
 x_n
 \end{bmatrix}</span></p>
-<p>From 1 :</p>
-<div class="line-block"><span class="math inline">z = x-w</span><br>
-&nbsp;<span class="math inline">\theta^T.z = \theta^T.x-\theta^T.w</span> [<em>Dot product with</em> <span class="math inline">\theta</span> <em>on both sides:</em> ]<br>
-&nbsp;<span class="math inline">z= \frac{-w.\theta}{||\theta||}</span><br>
-<em>(the -ve sign indicates which direction is the distance)</em></div>
+<p><span class="math display">
+\begin{align}
+(x+y)^2 &amp;= (x+y)(x+y) \\
+&amp;= x^2+xy+yx+y^2 \\
+&amp;= x^2+2xy+y^2
+\end{align}
+</span></p>
+<p><span class="math display">
+z=x-w \tag{1}
+</span><br>
+<span class="math display">
+\theta^T.z = \theta^T.x-\theta^T.w
+\tag{2}
+</span></p>
+<p><span class="math display">
+z= \frac{-w.\theta}{||\theta||}\tag{3}
+</span></p>
+<p>Large Margin Classifier</p>
 </section>
 <section id="algorithm-perceptron" class="level3" data-number="0.2">
 <h3 data-number="0.2" class="anchored" data-anchor-id="algorithm-perceptron"><span class="header-section-number">0.2</span> Algorithm: Perceptron</h3>
@@ -274,18 +289,18 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 \end{bmatrix}
 </span></p>
 <table class="table table-hover table-primary caption-top">
-<caption>Date Table {width='60%'}</caption>
+<caption>Date Table</caption>
 <colgroup>
 <col style="width: 13%">
-<col style="width: 14%">
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 23%">
+<col style="width: 12%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;"><span class="smallcaps">Label</span></th>
-<th style="text-align: center;"><span class="smallcaps">Label Value</span></th>
+<th style="text-align: center;"><span class="smallcaps">Label</span></th>
 <th style="text-align: center;"><span class="smallcaps">Feature</span></th>
 <th style="text-align: center;"><span class="smallcaps">Featurey</span></th>
 <th style="text-align: center;"><span class="smallcaps">Feature</span></th>
@@ -375,8 +390,67 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 <span id="cb1-24"><a href="#cb1-24"></a>    <span class="cf">return</span> (theta, theta_0)</span>
 <span id="cb1-25"><a href="#cb1-25"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="perceptron-performance" class="level3" data-number="0.3">
-<h3 data-number="0.3" class="anchored" data-anchor-id="perceptron-performance"><span class="header-section-number">0.3</span> Perceptron Performance</h3>
+<section id="large-margin-classifier" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="large-margin-classifier"><span class="header-section-number">0.3</span> Large Margin Classifier</h3>
+<p>The decision boundary equation is given by:</p>
+<p><span class="math display">
+\theta^T.x +\theta_0 = 0 \tag{4}
+</span></p>
+<p>The two margins are given by :</p>
+<p><span class="math display">
+\theta^T.x +\theta_0 = -1 \tag{5}
+</span></p>
+<p><span class="math display">
+\theta^T.x +\theta_0 = +1 \tag{6}
+</span></p>
+<p>The distance between this two margins are given by :</p>
+<p><span class="math display">
+D=\frac{2}{\theta}\tag {7}
+</span></p>
+<p>Implications of the margin : larger the margin teh better is the</p>
+<div class="quarto-layout-panel" data-fig-cap="Two views" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><img src="classifierimages/paste-1.png" class="img-fluid" alt="Barcelona waterfront" width="392"> <img src="classifierimages/paste-2.png" class="img-fluid" alt="Rome skyline" width="404"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="optimising-perceptron" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="optimising-perceptron"><span class="header-section-number">0.4</span> Optimising Perceptron :</h3>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="classifierimages/widemargin.jpg" class="img-fluid figure-img" width="443"></p>
+<figcaption>Fig7: Wide margin classifier</figcaption>
+</figure>
+</div>
+<p>What makes a classifier good classifier: When its able to split into two groups properly. That means for a proper classified group we can have an wide margin. How do we make it a wide margin? by changing the parameter.</p>
+<p>we can change the magnitude of theta ti change the width of the margin:</p>
+<p>Let’s create a new theta by dividing the current theta:</p>
+<p><span class="math inline">\theta^{'}=\theta/c</span></p>
+<p>from 4:</p>
+<p><span class="math display">
+\theta^T.x +\theta_0 = 0 \tag{4}
+</span></p>
+<p>Dividing both sides by c</p>
+<p><span class="math display">
+\frac{\theta^T.x}{c} +\frac{\theta_0}{c} = 0
+</span></p>
+<p><span class="math display">
+\theta^{'T}.x +\theta_0^{'} = 0
+</span></p>
+<p>The equation of the classifier is still valid. For the margin equations:</p>
+<p><span class="math display">
+\theta^{'T}.x +\theta_0{'} = \frac{-1}{c} \tag{7}
+</span></p>
+<p><span class="math display">
+\theta^{'T}.x +\theta_0^{'} = \frac{1}{c} \tag{8}
+</span></p>
+<p>Distance between these two lines is</p>
+<p><span class="math display"> d'=\frac{2c}{\theta}\tag{9}</span></p>
+</section>
+<section id="perceptron-performance" class="level3" data-number="0.5">
+<h3 data-number="0.5" class="anchored" data-anchor-id="perceptron-performance"><span class="header-section-number">0.5</span> Perceptron Performance</h3>
 <p>M times the update has been made. We know that the update formula is : <span class="math inline">\theta_i = \theta_{i-1} + y_i.x_i</span> <span class="math inline">x_i</span> = feature vector at ith round Let <span class="math inline">t_i</span> be the times when the weights are updated. <span class="math inline">t_i \in [ 1,.....M]\in [1....T]</span> to simplify two weights updates will be indicated by <span class="math inline">w_{k+1}</span> , and previous one will be indicated by <span class="math inline">w_k</span></p>
 <p><strong>Total Update</strong> is Sum of Update at every step:</p>
 <table class="caption-top table">
@@ -395,7 +469,7 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 </thead>
 <tbody>
 <tr class="odd">
-<td>Sum of Changes=</td>
+<td>Sum of Changes</td>
 <td></td>
 <td></td>
 </tr>
