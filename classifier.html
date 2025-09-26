@@ -3991,9 +3991,8 @@ window.Quarto = {
   <li><a href="#linear-classifier" id="toc-linear-classifier" class="nav-link active" data-scroll-target="#linear-classifier"><span class="header-section-number">0.1</span> Linear Classifier</a></li>
   <li><a href="#algorithm-perceptron" id="toc-algorithm-perceptron" class="nav-link" data-scroll-target="#algorithm-perceptron"><span class="header-section-number">0.2</span> Algorithm: Perceptron</a></li>
   <li><a href="#large-margin-classifier" id="toc-large-margin-classifier" class="nav-link" data-scroll-target="#large-margin-classifier"><span class="header-section-number">0.3</span> Large Margin Classifier</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">0.4</span> </a></li>
-  <li><a href="#optimising-perceptron" id="toc-optimising-perceptron" class="nav-link" data-scroll-target="#optimising-perceptron"><span class="header-section-number">0.5</span> Optimising Perceptron :</a></li>
-  <li><a href="#perceptron-performance" id="toc-perceptron-performance" class="nav-link" data-scroll-target="#perceptron-performance"><span class="header-section-number">0.6</span> Perceptron Performance</a></li>
+  <li><a href="#optimising-perceptron" id="toc-optimising-perceptron" class="nav-link" data-scroll-target="#optimising-perceptron"><span class="header-section-number">0.4</span> Optimising Perceptron :</a></li>
+  <li><a href="#perceptron-performance" id="toc-perceptron-performance" class="nav-link" data-scroll-target="#perceptron-performance"><span class="header-section-number">0.5</span> Perceptron Performance</a></li>
   </ul>
 </nav>
     </div>
@@ -4225,24 +4224,6 @@ D=\frac{2}{\theta}\tag {7}
 </div>
 </div>
 </div>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Underfitting</th>
-<th style="text-align: center;">Overfitting</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
 <section id="underfitting-vs-overfitting" class="level4" data-number="0.3.1">
 <h4 data-number="0.3.1" class="anchored" data-anchor-id="underfitting-vs-overfitting"><span class="header-section-number">0.3.1</span> Underfitting vs Overfitting:</h4>
 <p>During Training all images are not perfectly classified.</p>
@@ -4254,11 +4235,8 @@ D=\frac{2}{\theta}\tag {7}
 </div>
 </section>
 </section>
-<section id="section" class="level3" data-number="0.4">
-<h3 data-number="0.4" class="anchored" data-anchor-id="section"><span class="header-section-number">0.4</span> </h3>
-</section>
-<section id="optimising-perceptron" class="level3" data-number="0.5">
-<h3 data-number="0.5" class="anchored" data-anchor-id="optimising-perceptron"><span class="header-section-number">0.5</span> Optimising Perceptron :</h3>
+<section id="optimising-perceptron" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="optimising-perceptron"><span class="header-section-number">0.4</span> Optimising Perceptron :</h3>
 <p>What makes a classifier good classifier: When its able to split into two groups properly. That means for a proper classified group we can have an wide margin. How do we make it a wide margin? by changing the parameter.</p>
 <p>we can change the magnitude of theta to change the width of the margin:</p>
 <p>Let’s create a new theta by dividing the current theta:</p>
@@ -4282,13 +4260,17 @@ D=\frac{2}{\theta}\tag {7}
 \theta^{&#39;T}.x +\theta_0^{&#39;} = \frac{1}{c} \tag{8}
 </span></p>
 <p>Distance between these two lines is</p>
-<p><span class="math display"> d&#39;=\frac{2c}{\theta}\tag{9}</span></p>
-<section id="section-1" class="level4" data-number="0.5.1">
-<h4 data-number="0.5.1" class="anchored" data-anchor-id="section-1"><span class="header-section-number">0.5.1</span> </h4>
+<p><span class="math display"> d&#39;=\frac{2c}{\theta} \approx \frac{\lambda}{\theta}\tag{9}</span></p>
+<section id="regularisation" class="level4" data-number="0.4.1">
+<h4 data-number="0.4.1" class="anchored" data-anchor-id="regularisation"><span class="header-section-number">0.4.1</span> Regularisation</h4>
+<p>The goal is to regulate the model. This creates a wide margin and underfitting. We can increase the margin by regulating <span class="math inline">\lambda</span></p>
+</section>
+<section id="loss-function" class="level4" data-number="0.4.2">
+<h4 data-number="0.4.2" class="anchored" data-anchor-id="loss-function"><span class="header-section-number">0.4.2</span> Loss Function</h4>
 </section>
 </section>
-<section id="perceptron-performance" class="level3" data-number="0.6">
-<h3 data-number="0.6" class="anchored" data-anchor-id="perceptron-performance"><span class="header-section-number">0.6</span> Perceptron Performance</h3>
+<section id="perceptron-performance" class="level3" data-number="0.5">
+<h3 data-number="0.5" class="anchored" data-anchor-id="perceptron-performance"><span class="header-section-number">0.5</span> Perceptron Performance</h3>
 <p>M times the update has been made. We know that the update formula is : <span class="math inline">\theta_i = \theta_{i-1} + y_i.x_i</span> <span class="math inline">x_i</span> = feature vector at ith round Let <span class="math inline">t_i</span> be the times when the weights are updated. <span class="math inline">t_i \in [ 1,.....M]\in [1....T]</span> to simplify two weights updates will be indicated by <span class="math inline">w_{k+1}</span> , and previous one will be indicated by <span class="math inline">w_k</span></p>
 <p><strong>Total Update</strong> is Sum of Update at every step:</p>
 <table class="caption-top table">
