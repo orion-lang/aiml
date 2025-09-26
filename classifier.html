@@ -274,21 +274,50 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 -1 \\
 \end{bmatrix}
 </span></p>
+<div class="table table-hover table-primary">
+<table class="caption-top table">
+<caption>Hello world</caption>
+<thead>
+<tr class="header">
+<th>Col1</th>
+<th>Col2</th>
+<th>Col3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
-<col style="width: 11%">
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 24%">
+<col style="width: 14%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Label</th>
-<th style="text-align: center;">Label Value</th>
-<th style="text-align: center;">Feature</th>
-<th style="text-align: center;">Feature</th>
-<th style="text-align: center;">Feature</th>
+<th style="text-align: center;"><span class="smallcaps">Label</span></th>
+<th style="text-align: center;"><span class="smallcaps">Label Value</span></th>
+<th style="text-align: center;"><span class="smallcaps">Feature</span></th>
+<th style="text-align: center;"><span class="smallcaps">Feature</span></th>
+<th style="text-align: center;"><span class="smallcaps">Feature</span></th>
 </tr>
 </thead>
 <tbody>
@@ -377,10 +406,7 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 </section>
 <section id="perceptron-performance" class="level3" data-number="0.3">
 <h3 data-number="0.3" class="anchored" data-anchor-id="perceptron-performance"><span class="header-section-number">0.3</span> Perceptron Performance</h3>
-<p>M times the update has been made. We know that the update formula is :</p>
-<p><span class="math inline">\theta_i = \theta_{i-1} + y_i.x_i</span> <span class="math inline">x_i</span> = feature vector at ith round</p>
-<p>Let <span class="math inline">t_i</span> be the times when the weights are updated. <span class="math inline">t_i \in [ 1,.....M]\in [1....T]</span></p>
-<p>to simplify two weights updates will be indicated by <span class="math inline">w_{k+1}</span> , and previous one will be indicated by <span class="math inline">w_k</span></p>
+<p>M times the update has been made. We know that the update formula is : <span class="math inline">\theta_i = \theta_{i-1} + y_i.x_i</span> <span class="math inline">x_i</span> = feature vector at ith round Let <span class="math inline">t_i</span> be the times when the weights are updated. <span class="math inline">t_i \in [ 1,.....M]\in [1....T]</span> to simplify two weights updates will be indicated by <span class="math inline">w_{k+1}</span> , and previous one will be indicated by <span class="math inline">w_k</span></p>
 <p><strong>Total Update</strong> is Sum of Update at every step:</p>
 <table class="caption-top table">
 <caption>Proof</caption>
