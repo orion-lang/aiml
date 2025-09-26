@@ -22,4 +22,4 @@ format:
     page-layout: full
     highlight-style: vim-dark
     code-line-numbers: true
-    css: styles.scss
+  
