@@ -3,7 +3,7 @@ project:
 
 website:
   title: "My Notes"
-  image: image/rhinecopy.jpg
+  image: images/rhinecopy.jpg
   site-url: "https://orion-lang.github.io/aiml"
   navbar:
     left:
