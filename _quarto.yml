@@ -20,3 +20,5 @@ format:
     number-sections: true
     html-math-method: katex
     page-layout: full
+    highlight-style: tango
+    code-line-numbers: true
