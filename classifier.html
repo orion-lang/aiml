@@ -195,7 +195,10 @@ window.Quarto = {
   <ul>
   <li><a href="#linear-classifier" id="toc-linear-classifier" class="nav-link active" data-scroll-target="#linear-classifier"><span class="header-section-number">0.1</span> Linear Classifier</a></li>
   <li><a href="#algorithm-perceptron" id="toc-algorithm-perceptron" class="nav-link" data-scroll-target="#algorithm-perceptron"><span class="header-section-number">0.2</span> Algorithm: Perceptron</a></li>
-  <li><a href="#perceptron-performance" id="toc-perceptron-performance" class="nav-link" data-scroll-target="#perceptron-performance"><span class="header-section-number">0.3</span> Perceptron Performance</a></li>
+  <li><a href="#my-accordion-demo" id="toc-my-accordion-demo" class="nav-link" data-scroll-target="#my-accordion-demo"><span class="header-section-number">1</span> My Accordion Demo</a>
+  <ul class="collapse">
+  <li><a href="#perceptron-performance" id="toc-perceptron-performance" class="nav-link" data-scroll-target="#perceptron-performance"><span class="header-section-number">1.1</span> Perceptron Performance</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -352,35 +355,78 @@ y=\begin{bmatrix}
 <li><p>Initialise theta and theta_0:</p></li>
 <li><p>For i in range (featire_matrix,shape[0]): iteratively check if the distance is positive distance</p></li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> perceptron_single_step_update( feature_vector, label, current_theta, current_theta_0): </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> feature_vector.shape[<span class="dv">0</span>]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>decision <span class="op">=</span> label<span class="op">*</span>(np.dot(current_theta, feature_vector)<span class="op">+</span>current_theta_0)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> decision <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    current_theta <span class="op">=</span> current_theta <span class="op">+</span> label<span class="op">*</span>feature_vector</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    current_theta_0 <span class="op">=</span> current_theta_0 <span class="op">+</span> label</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (current_theta, current_theta_0)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (current_theta, current_theta_0)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> perceptron(feature_matrix, labels, T):</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    theta <span class="op">=</span> np.zeros(feature_matrix.shape[<span class="dv">1</span>])</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    theta_0 <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    nsamples <span class="op">=</span> feature_matrix.shape[<span class="dv">0</span>]</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(T):</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> get_order(nsamples):</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Your code here</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            theta, theta_0 <span class="op">=</span> perceptron_single_step_update(</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                feature_matrix[i], labels[i], theta, theta_0)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            <span class="co"># print("current theta",theta)</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (theta, theta_0)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="perceptron-performance" class="level3" data-number="0.3">
-<h3 data-number="0.3" class="anchored" data-anchor-id="perceptron-performance"><span class="header-section-number">0.3</span> Perceptron Performance</h3>
+<section id="my-accordion-demo" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="my-accordion-demo"><span class="header-section-number">1</span> My Accordion Demo</h2>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<pre><code>&lt;h2 class="accordion-header" id="headingOne"&gt;
+  &lt;button class="accordion-button" type="button" data-bs-toggle="collapse"
+    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"&gt;
+    Accordion Item #1
+  &lt;/button&gt;
+&lt;/h2&gt;
+&lt;div id="collapseOne" class="accordion-collapse collapse show"
+  aria-labelledby="headingOne" data-bs-parent="#accordionExample"&gt;
+  &lt;div class="accordion-body"&gt;
+    def perceptron_single_step_update( feature_vector, label, current_theta, current_theta_0): 
+rows = feature_vector.shape[0]
+decision = label*(np.dot(current_theta, feature_vector)+current_theta_0)
+
+if decision &lt;= 0:
+    current_theta = current_theta + label*feature_vector
+    current_theta_0 = current_theta_0 + label
+    return (current_theta, current_theta_0)
+else:
+    return (current_theta, current_theta_0)
+
+
+def perceptron(feature_matrix, labels, T):
+    theta = np.zeros(feature_matrix.shape[1])
+    theta_0 = 0
+    nsamples = feature_matrix.shape[0]
+    
+    for t in range(T):
+        for i in get_order(nsamples):
+            # Your code here
+            theta, theta_0 = perceptron_single_step_update(
+                feature_matrix[i], labels[i], theta, theta_0)
+            # print("current theta",theta)
+    return (theta, theta_0)
+    
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<!-- repeat for items 2 & 3 -->
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> perceptron_single_step_update( feature_vector, label, current_theta, current_theta_0): </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> feature_vector.shape[<span class="dv">0</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>decision <span class="op">=</span> label<span class="op">*</span>(np.dot(current_theta, feature_vector)<span class="op">+</span>current_theta_0)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> decision <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    current_theta <span class="op">=</span> current_theta <span class="op">+</span> label<span class="op">*</span>feature_vector</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    current_theta_0 <span class="op">=</span> current_theta_0 <span class="op">+</span> label</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (current_theta, current_theta_0)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (current_theta, current_theta_0)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> perceptron(feature_matrix, labels, T):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    theta <span class="op">=</span> np.zeros(feature_matrix.shape[<span class="dv">1</span>])</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    theta_0 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    nsamples <span class="op">=</span> feature_matrix.shape[<span class="dv">0</span>]</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(T):</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> get_order(nsamples):</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Your code here</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            theta, theta_0 <span class="op">=</span> perceptron_single_step_update(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                feature_matrix[i], labels[i], theta, theta_0)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            <span class="co"># print("current theta",theta)</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (theta, theta_0)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="perceptron-performance" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="perceptron-performance"><span class="header-section-number">1.1</span> Perceptron Performance</h3>
 <p>M times the update has been made. We know that the update formula is :</p>
 <p><span class="math inline">\theta_i = \theta_{i-1} + y_i.x_i</span> <span class="math inline">x_i</span> = feature vector at ith round</p>
 <p>Let <span class="math inline">t_i</span> be the times when the weights are updated. <span class="math inline">t_i \in [ 1,.....M]\in [1....T]</span></p>
@@ -445,6 +491,7 @@ y=\begin{bmatrix}
 </table>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
