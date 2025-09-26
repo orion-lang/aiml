@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-84a58b65e987ff3ceb9c4bb0fe8f80a1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -140,7 +140,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./classifier.html" aria-current="page"> 
-<span class="menu-text">Classifier</span></a>
+<span class="menu-text">Linear Classifier</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -228,7 +228,18 @@ or, <span class="math inline">z= \frac{-w.\theta}{||\theta||}</span><br>
 <section id="algorithm-perceptron" class="level3" data-number="0.2">
 <h3 data-number="0.2" class="anchored" data-anchor-id="algorithm-perceptron"><span class="header-section-number">0.2</span> Algorithm: Perceptron</h3>
 <p>Binary classification : Data represented by two labels.</p>
-<p>Dataset with 4 features</p>
+<p>Assume we have a data set as per the table. So we have a feature matrix :</p>
+<p>Feature Matrix=</p>
+$
+<span class="math display">\begin{bmatrix}
+x_{11} &amp;&amp; x_{12} &amp;&amp; x_{13} \\
+x_{21} &amp;&amp; x_{22} &amp;&amp; x_{23} \\
+x_{31} &amp;&amp; x_{32} &amp;&amp; x_{33} \\
+x_{41} &amp;&amp; x_{42} &amp;&amp; x_{43} \\
+x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
+
+\end{bmatrix}</span>
+<p>$</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
