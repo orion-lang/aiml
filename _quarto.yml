@@ -3,8 +3,9 @@ project:
 
 website:
   title: "My Notes"
-  image: images/rhinecopy.jpg
+  image: images/barcelona.jpg
   site-url: "https://orion-lang.github.io/aiml"
+  
   navbar:
     left:
       - text: "Home"
@@ -18,3 +19,4 @@ format:
     toc: true
     number-sections: true
     html-math-method: katex
+    page-layout: full
