@@ -20,7 +20,6 @@ format:
     number-sections: true
     html-math-method: katex
     page-layout: full
-    highlight-style: dracula
+    highlight-style: vim-dark
     code-line-numbers: true
-    code-overflow: wrap
-    code-block-bg: "#CBDCE7"
+    css: styles.scss
