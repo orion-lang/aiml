@@ -4023,7 +4023,7 @@ window.Quarto = {
 </div>
 <p>How to identify equation of a classifier (straight line in 2D plane) which can split this data sets in two groups?</p>
 <p><strong>A quick detour with Vector Algebra :</strong></p>
-<div class="quarto-layout-panel" data-layout-ncol="2" data-fig-cap="Two views">
+<div class="quarto-layout-panel" data-fig-cap="Two views" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-left">
@@ -4202,7 +4202,7 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div id="d3ddc1de" class="cell" data-execution_count="1">
+<div id="ad1512e4" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Perceptron (click to view code)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -4225,34 +4225,6 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 <span id="cb1-18"><a href="#cb1-18"></a>    <span class="cf">return</span> theta, theta_0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#| code-summary: &quot;Perceptron (click to view code)&quot;</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">def</span> perceptron_single_step_update( feature_vector, label, current_theta, current_theta_0): </span>
-<span id="cb2-5"><a href="#cb2-5"></a>    rows <span class="op">=</span> feature_vector.shape[<span class="dv">0</span>]</span>
-<span id="cb2-6"><a href="#cb2-6"></a>    decision <span class="op">=</span> label<span class="op">*</span>(np.dot(current_theta, feature_vector)<span class="op">+</span>current_theta_0)</span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a>    <span class="cf">if</span> decision <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb2-9"><a href="#cb2-9"></a>        current_theta <span class="op">=</span> current_theta <span class="op">+</span> label<span class="op">*</span>feature_vector</span>
-<span id="cb2-10"><a href="#cb2-10"></a>        current_theta_0 <span class="op">=</span> current_theta_0 <span class="op">+</span> label</span>
-<span id="cb2-11"><a href="#cb2-11"></a>        <span class="cf">return</span> (current_theta, current_theta_0)</span>
-<span id="cb2-12"><a href="#cb2-12"></a>    <span class="cf">else</span>:</span>
-<span id="cb2-13"><a href="#cb2-13"></a>        <span class="cf">return</span> (current_theta, current_theta_0)</span>
-<span id="cb2-14"><a href="#cb2-14"></a></span>
-<span id="cb2-15"><a href="#cb2-15"></a></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="kw">def</span> perceptron(feature_matrix, labels, T):</span>
-<span id="cb2-17"><a href="#cb2-17"></a>    theta <span class="op">=</span> np.zeros(feature_matrix.shape[<span class="dv">1</span>])</span>
-<span id="cb2-18"><a href="#cb2-18"></a>    theta_0 <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-19"><a href="#cb2-19"></a>    nsamples <span class="op">=</span> feature_matrix.shape[<span class="dv">0</span>]</span>
-<span id="cb2-20"><a href="#cb2-20"></a>    </span>
-<span id="cb2-21"><a href="#cb2-21"></a>    <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(T):</span>
-<span id="cb2-22"><a href="#cb2-22"></a>        <span class="cf">for</span> i <span class="kw">in</span> get_order(nsamples):</span>
-<span id="cb2-23"><a href="#cb2-23"></a>            <span class="co"># Your code here</span></span>
-<span id="cb2-24"><a href="#cb2-24"></a>            theta, theta_0 <span class="op">=</span> perceptron_single_step_update(</span>
-<span id="cb2-25"><a href="#cb2-25"></a>                feature_matrix[i], labels[i], theta, theta_0)</span>
-<span id="cb2-26"><a href="#cb2-26"></a>            <span class="co"># print(&quot;current theta&quot;,theta)</span></span>
-<span id="cb2-27"><a href="#cb2-27"></a>    <span class="cf">return</span> (theta, theta_0)</span>
-<span id="cb2-28"><a href="#cb2-28"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="large-margin-classifier" class="level3" data-number="0.2">
 <h3 data-number="0.2" class="anchored" data-anchor-id="large-margin-classifier"><span class="header-section-number">0.2</span> Large Margin Classifier</h3>
 <div class="quarto-figure quarto-figure-left">
@@ -4277,7 +4249,7 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 D=\frac{2}{\theta}\tag {7}
 </span></p>
 <p>Implications of the margin : larger the margin the better is the</p>
-<div class="quarto-layout-panel" data-layout-ncol="2" data-fig-cap="Two views">
+<div class="quarto-layout-panel" data-fig-cap="Two views" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
