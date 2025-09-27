@@ -4013,7 +4013,7 @@ window.Quarto = {
 </div>
 <p>How to identify equation of a classifier (straight line in 2D plane) which can split this data sets in two groups?</p>
 <p><strong>A quick detour with Vector Algebra :</strong></p>
-<div class="quarto-layout-panel" data-fig-cap="Two views" data-layout-ncol="2">
+<div class="quarto-layout-panel" data-layout-ncol="2" data-fig-cap="Two views">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-left">
@@ -4200,15 +4200,15 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 <span id="cb1-2"><a href="#cb1-2"></a><span class="co">#| code-fold: true</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="co">#| code-summary: &quot;Perceptron (click to view code)&quot;</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="kw">def</span> perceptron_single_step_update( feature_vector, label, current_theta, current_theta_0): </span>
-<span id="cb1-5"><a href="#cb1-5"></a>rows <span class="op">=</span> feature_vector.shape[<span class="dv">0</span>]</span>
-<span id="cb1-6"><a href="#cb1-6"></a>decision <span class="op">=</span> label<span class="op">*</span>(np.dot(current_theta, feature_vector)<span class="op">+</span>current_theta_0)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    rows <span class="op">=</span> feature_vector.shape[<span class="dv">0</span>]</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    decision <span class="op">=</span> label<span class="op">*</span>(np.dot(current_theta, feature_vector)<span class="op">+</span>current_theta_0)</span>
 <span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="cf">if</span> decision <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb1-9"><a href="#cb1-9"></a>    current_theta <span class="op">=</span> current_theta <span class="op">+</span> label<span class="op">*</span>feature_vector</span>
-<span id="cb1-10"><a href="#cb1-10"></a>    current_theta_0 <span class="op">=</span> current_theta_0 <span class="op">+</span> label</span>
-<span id="cb1-11"><a href="#cb1-11"></a>    <span class="cf">return</span> (current_theta, current_theta_0)</span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="cf">else</span>:</span>
-<span id="cb1-13"><a href="#cb1-13"></a>    <span class="cf">return</span> (current_theta, current_theta_0)</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="cf">if</span> decision <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
+<span id="cb1-9"><a href="#cb1-9"></a>        current_theta <span class="op">=</span> current_theta <span class="op">+</span> label<span class="op">*</span>feature_vector</span>
+<span id="cb1-10"><a href="#cb1-10"></a>        current_theta_0 <span class="op">=</span> current_theta_0 <span class="op">+</span> label</span>
+<span id="cb1-11"><a href="#cb1-11"></a>        <span class="cf">return</span> (current_theta, current_theta_0)</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-13"><a href="#cb1-13"></a>        <span class="cf">return</span> (current_theta, current_theta_0)</span>
 <span id="cb1-14"><a href="#cb1-14"></a></span>
 <span id="cb1-15"><a href="#cb1-15"></a></span>
 <span id="cb1-16"><a href="#cb1-16"></a><span class="kw">def</span> perceptron(feature_matrix, labels, T):</span>
@@ -4249,7 +4249,7 @@ x_{51} &amp;&amp; x_{52} &amp;&amp; x_{53} \\
 D=\frac{2}{\theta}\tag {7}
 </span></p>
 <p>Implications of the margin : larger the margin the better is the</p>
-<div class="quarto-layout-panel" data-fig-cap="Two views" data-layout-ncol="2">
+<div class="quarto-layout-panel" data-layout-ncol="2" data-fig-cap="Two views">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
